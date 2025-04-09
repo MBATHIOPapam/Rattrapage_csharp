@@ -1,0 +1,15 @@
+@model AnnuaireTelephone.Models.Telephone
+
+<h2>Ajouter un numéro</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Numéro</label>
+        <input asp-for="Numero" class="form-control" />
+    </div>
+    <div>
+        <label>Client</label>
+        <select asp-for="ClientId" asp-items="ViewBag.Clients" class="form-control"></select>
+    </div>
+    <button type="submit">Ajouter</button>
+</form>

@@ -1,0 +1,23 @@
+@model IEnumerable<AnnuaireTelephone.Models.Client>
+
+<h2>Liste des Clients</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Matricule</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model)
+        {
+            <tr>
+                <td>@client.Matricule</td>
+                <td>@client.Nom</td>
+                <td>@client.Prenom</td>
+            </tr>
+        }
+    </tbody>
+</table>

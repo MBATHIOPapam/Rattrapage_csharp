@@ -1,0 +1,19 @@
+@model AnnuaireTelephone.Models.Client
+
+<h2>Ajouter un Client</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Matricule</label>
+        <input asp-for="Matricule" class="form-control" />
+    </div>
+    <div>
+        <label>Nom</label>
+        <input asp-for="Nom" class="form-control" />
+    </div>
+    <div>
+        <label>Prénom</label>
+        <input asp-for="Prenom" class="form-control" />
+    </div>
+    <button type="submit">Ajouter</button>
+</form>

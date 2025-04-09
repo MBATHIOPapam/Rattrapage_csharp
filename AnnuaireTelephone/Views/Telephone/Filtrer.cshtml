@@ -1,0 +1,47 @@
+@model IEnumerable<AnnuaireTelephone.Models.Telephone>
+@{
+    ViewData["Title"] = "Filtrer les numéros";
+    var clients = ViewBag.Clients as SelectList;
+}
+
+<h2>Filtrer les numéros</h2>
+
+<form method="get" asp-action="Filtrer">
+    <div class="form-group">
+        <label>Client</label>
+        <select name="clientId" class="form-control" asp-items="clients">
+            <option value="">-- Tous --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Opérateur</label>
+        <select name="operateur" class="form-control">
+            <option value="">-- Tous --</option>
+            <option value="Orange">Orange</option>
+            <option value="Tigo">Tigo</option>
+            <option value="Free">Free</option>
+            <option value="Expresso">Expresso</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Filtrer</button>
+</form>
+
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Opérateur</th>
+            <th>Client</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tel in Model)
+        {
+            <tr>
+                <td>@tel.Numero</td>
+                <td>@tel.Operateur</td>
+                <td>@tel.Client?.Nom</td>
+            </tr>
+        }
+    </tbody>
+</table>
